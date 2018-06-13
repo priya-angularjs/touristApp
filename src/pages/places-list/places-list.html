@@ -1,0 +1,63 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Places list</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding *ngIf="detailPage">
+  <ion-card>
+    <form  [formGroup]="placesListForm">
+    <ion-list >
+      <ion-item>
+        <ion-label stacked>Place</ion-label>
+        <ion-input type="text" value="{{detailPlaceList.id}}" formControlName="id" readonly></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label stacked>Place</ion-label>
+        <ion-input type="text" value="{{detailPlaceList.location}}" formControlName="location"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label stacked>District</ion-label>
+        <ion-input type="text" value="{{detailPlaceList.district}}" formControlName="district"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label stacked>State</ion-label>
+        <ion-input type="text" value="{{detailPlaceList.state}}" formControlName="state"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label stacked>Description</ion-label>
+        <ion-textarea type="text" value="{{detailPlaceList.description}}" formControlName="description"></ion-textarea>
+      </ion-item>
+      <ion-item>
+        <p><img src="{{detailPlaceList.image}}"></p>
+      </ion-item>
+
+
+    </ion-list>
+    </form>
+    <ion-item>
+      <button ion-button clear item-start  (click)="updatePlaces(placesListForm)">Update</button>
+      <button ion-button clear item-end (click)="deletePlaces(detailPlaceList.id)">Delete</button>
+    </ion-item>
+  </ion-card>
+
+</ion-content>
+<ion-content padding *ngIf="listPage">
+
+  <ion-list>
+    <div *ngIf= "noDataFound">No Data Found ..!</div>
+    <button ion-item  *ngFor = "let place of placesList" (click)="itemTapped(place)">
+      <ion-thumbnail item-start>
+        <img src="{{place.image}}">
+      </ion-thumbnail>
+      <h2>{{place.location}}</h2>
+      <p>{{place.state}}</p>
+    </button>
+  </ion-list>
+</ion-content>

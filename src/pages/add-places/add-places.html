@@ -1,0 +1,42 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Add Place</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-fab top right edge>
+    <button ion-fab (click)="placeList()"><ion-icon name="eye"></ion-icon></button>
+  </ion-fab>
+  <div class="col">
+    <form [formGroup]="addPlaceForm">
+      <ion-item>
+        <ion-input placeholder="Location"  formControlName="location"></ion-input>
+    </ion-item>
+      <ion-item>
+        <ion-input placeholder="District"  formControlName="district"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input placeholder="State"  formControlName="state"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input placeholder="Description"  formControlName="description"></ion-input>
+      </ion-item>
+      <ion-item>
+        <button ion-button color="secondary" outline icon-only (click)="openMenu()">
+          <ion-icon name='image' is-active="false"></ion-icon><span style="padding: 2px;">Select Image</span>
+        </button>
+        <ion-thumbnail item-end *ngIf="thumbnailview">
+          <img src="{{imageData}}">
+        </ion-thumbnail>
+      </ion-item>
+    </form>
+    <button ion-button color="secondary" block (click)="addPlace(addPlaceForm)">Submit</button>
+
+    </div>
+
+</ion-content>

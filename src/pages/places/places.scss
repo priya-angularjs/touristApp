@@ -1,0 +1,15 @@
+page-places {
+  .image-container{
+    background-size: cover;
+    min-height: 150px;
+    opacity: 0.5;
+    filter: alpha(opacity=50);
+  }
+
+  .image-container:hover {
+    background-size: cover;
+    min-height: 150px;
+    opacity: 1.0;
+    filter: alpha(opacity=50);
+  }
+}

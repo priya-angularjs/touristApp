@@ -1,0 +1,64 @@
+<!--
+  Generated template for the PlacesDetailPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Place details</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <ion-card>
+  <ion-grid>
+    <ion-row>
+      <ion-col col-6>
+        <!--<img src="{{places.url}}">-->
+         <div class="image-container" [style.background-image]="'url('+places.url+')'">
+         </div>
+      </ion-col>
+      <ion-col col-6>
+        <div class="place-margin">
+          <label><b class="text">Place:</b></label>
+          <div>{{places.place}}</div>
+        </div>
+        <div class="place-margin">
+          <label><b class="text">State:</b></label>
+          <div>{{places.state}}</div>
+        </div>
+        <div class="place-margin">
+          <label><b class="text">District:</b></label>
+          <div>{{places.place}}</div>
+        </div>
+
+
+      </ion-col>
+
+    </ion-row>
+    <ion-row>
+      <div class="desc-margin">
+        <label><b class="text">Description:</b></label>
+        <div class="desc-indent">{{places.description}}</div>
+      </div>
+
+    </ion-row>
+  </ion-grid>
+  </ion-card>
+  <ion-card>
+    <ion-item>
+      <button ion-button icon-left (click)="favorite(places)" clear item-left>
+        <ion-icon name="star"></ion-icon>
+        Favorite
+      </button>
+    </ion-item>
+  </ion-card>
+
+</ion-content>
+
+
+
